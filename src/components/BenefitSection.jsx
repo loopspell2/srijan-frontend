@@ -4,19 +4,19 @@ import { Copy, ArrowRight } from 'lucide-react'
 export default function Benefits() {
     const benefits = [
         {
-            title: 'Copy & paste components',
+            title: 'Improvment Public Safty',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet',
         },
         {
-            title: 'Copy & paste components',
+            title: 'Reduce maintenance costs',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet',
         },
         {
-            title: 'Copy & paste components',
+            title: 'Enhance Assets life cycle',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet',
         },
         {
-            title: 'Copy & paste components',
+            title: 'Better Resource Utilization',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet',
         },
         

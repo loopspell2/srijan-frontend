@@ -1,80 +1,73 @@
 import React from "react";
+import assetTrackingImage from '../components/User/bus.png';
+import assetMaintenaceImage from '../components/User/main.png';
+import assetResourceImage from '../components/User/res.png';
+import assetDataImage from '../components/User/dataI.png';
+import { Link } from "react-router-dom";
 
 export default function Feature() {
   return (
     <>
       <div className="flex justify-around mt-11">
         <div className="w-[400px] bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4 ">
-          <div className="p-8 flex flex-col items-center">
+          <div className="p-8 flex flex-col items-center ">
             <div className="uppercase text-center tracking-wide text-sm text-indigo-500 font-semibold mb-4">
-              Task List
+              <h1>Asset Tracking</h1>
+              <img src={assetTrackingImage} alt="Asset Tracking" className="w-12 object-cover mt-4 rounded-md "/>
             </div>
+
             <ul className="space-y-3 ">
               <li className="flex items-center">
-                <span className="text-gray-700">Complete project proposal</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Schedule team meeting</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Review client feedback</span>
+                <span className="text-gray-700">
+                  Real Time Tracking of Municiple Asset
+                </span>
+                
               </li>
             </ul>
           </div>
         </div>
-
         <div className="w-[400px]  bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4">
-        <div className="p-8 flex flex-col items-center">
+          <div className="p-8 flex flex-col items-center">
             <div className="uppercase text-center tracking-wide text-sm text-indigo-500 font-semibold mb-4">
-              Task List
+              Predictive Maintanece
+              <img src={assetMaintenaceImage} alt="Asset Tracking" className="w-16 object-cover mt-4 rounded-md" />
             </div>
             <ul className="space-y-3">
               <li className="flex items-center">
-                <span className="text-gray-700">Complete project proposal</span>
+                <Link to={'/asset-prediction'} >
+                <span className="text-gray-700">Ai-Driven Prediction for maintanece</span>
+                </Link>
               </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Schedule team meeting</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Review client feedback</span>
-              </li>
+              
             </ul>
           </div>
         </div>
 
         <div className="w-[400px] bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4">
-        <div className="p-8 flex flex-col items-center">
+          <div className="p-8 flex flex-col items-center">
             <div className="uppercase text-center tracking-wide text-sm text-indigo-500 font-semibold mb-4">
-              Task List
+              Resource Allocation
+              <img src={assetResourceImage} alt="Asset Tracking" className="w-12 object-cover mt-4 rounded-md" />
             </div>
             <ul className="space-y-3">
               <li className="flex items-center">
-                <span className="text-gray-700">Complete project proposal</span>
+                <span className="text-gray-700">Optimized resource for assets management</span>
               </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Schedule team meeting</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Review client feedback</span>
-              </li>
+              
             </ul>
           </div>
         </div>
         <div className="w-[400px] bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4">
-        <div className="p-8 flex flex-col items-center">
+          <div className="p-8 flex flex-col items-center">
             <div className="uppercase text-center tracking-wide text-sm text-indigo-500 font-semibold mb-4">
-              Task List
+              Data Integration
+              <img src={assetDataImage} alt="Asset Tracking" className="w-12 object-cover mt-4 rounded-md" />
             </div>
             <ul className="space-y-3">
               <li className="flex items-center">
-                <span className="text-gray-700">Complete project proposal</span>
+                <span className="text-gray-700">Centralized data and analytics</span>
               </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Schedule team meeting</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-gray-700">Review client feedback</span>
-              </li>
+              
             </ul>
           </div>
         </div>
