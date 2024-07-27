@@ -1,0 +1,145 @@
+[
+  {
+    "Asset Type": "Bridge",
+    "Usage Hours": 5050.902777777777,
+    "Maintenance Count": 9.277777777777779,
+    "Environmental Temperature": 16.40277777777778,
+    "Humidity": 62.40277777777778,
+    "Condition Score": 54.083333333333336,
+    "Criticality Score": 4.75,
+    "Cost": 149993.6784,
+    "Priority": 6.954166666666667
+  },
+  {
+    "Asset Type": "Bus",
+    "Usage Hours": 5541.536585365854,
+    "Maintenance Count": 8.987804878048781,
+    "Environmental Temperature": 16.329268292682926,
+    "Humidity": 60.51219512195122,
+    "Condition Score": 52.829268292682926,
+    "Criticality Score": 4.853658536585366,
+    "Cost": 226022.3115,
+    "Priority": 7.326951219512196
+  },
+  {
+    "Asset Type": "Construction Equipment",
+    "Usage Hours": 5609.471264367816,
+    "Maintenance Count": 8.96551724137931,
+    "Environmental Temperature": 15.850574712643677,
+    "Humidity": 66.80459770114942,
+    "Condition Score": 55.37931034482759,
+    "Criticality Score": 5.068965517241379,
+    "Cost": 365523.4046,
+    "Priority": 7.3277011494252875
+  },
+  {
+    "Asset Type": "Emergency Vehicle",
+    "Usage Hours": 5444.294117647059,
+    "Maintenance Count": 8.367647058823529,
+    "Environmental Temperature": 16.720588235294116,
+    "Humidity": 59.25,
+    "Condition Score": 52.69117647058823,
+    "Criticality Score": 4.529411764705882,
+    "Cost": 213694.88085000002,
+    "Priority": 6.877352941176471
+  },
+  {
+    "Asset Type": "Garbage Truck",
+    "Usage Hours": 5721.961038961039,
+    "Maintenance Count": 10.103896103896103,
+    "Environmental Temperature": 13.727272727272727,
+    "Humidity": 58.05194805194805,
+    "Condition Score": 55.02597402597402,
+    "Criticality Score": 5.012987012987013,
+    "Cost": 171151.3057,
+    "Priority": 7.295454545454546
+  },
+  {
+    "Asset Type": "IT Equipment",
+    "Usage Hours": 5561.35,
+    "Maintenance Count": 10.875,
+    "Environmental Temperature": 16.375,
+    "Humidity": 64.6875,
+    "Condition Score": 45.15,
+    "Criticality Score": 5.25,
+    "Cost": 108760.61955,
+    "Priority": 8.09675
+  },
+  {
+    "Asset Type": "Maintenance Equipment",
+    "Usage Hours": 5440,
+    "Maintenance Count": 9.91764705882353,
+    "Environmental Temperature": 12.905882352941177,
+    "Humidity": 57.4,
+    "Condition Score": 45.62352941176471,
+    "Criticality Score": 4.964705882352941,
+    "Cost": 133692.60828000001,
+    "Priority": 7.6062352941176465
+  },
+  {
+    "Asset Type": "Maintenance Vehicle",
+    "Usage Hours": 4832.64705882353,
+    "Maintenance Count": 9.552941176470588,
+    "Environmental Temperature": 15.705882352941176,
+    "Humidity": 60.49411764705882,
+    "Condition Score": 49.64705882352941,
+    "Criticality Score": 5.411764705882353,
+    "Cost": 168346.17648,
+    "Priority": 8.137411764705881
+  },
+  {
+    "Asset Type": "Park",
+    "Usage Hours": 4838.623188405797,
+    "Maintenance Count": 9.608695652173912,
+    "Environmental Temperature": 15.347826086956522,
+    "Humidity": 56.333333333333336,
+    "Condition Score": 59.84057971014493,
+    "Criticality Score": 5.463768115942029,
+    "Cost": 93831.13605,
+    "Priority": 7.619855072463768
+  },
+  {
+    "Asset Type": "Public Building",
+    "Usage Hours": 5769.729411764706,
+    "Maintenance Count": 8.494117647058824,
+    "Environmental Temperature": 14.258823529411766,
+    "Humidity": 60.76470588235294,
+    "Condition Score": 52.96470588235294,
+    "Criticality Score": 5.152941176470589,
+    "Cost": 283913.80035000003,
+    "Priority": 7.536588235294118
+  },
+  {
+    "Asset Type": "Public Utility Equipment",
+    "Usage Hours": 5574.871428571429,
+    "Maintenance Count": 9.2,
+    "Environmental Temperature": 14.928571428571429,
+    "Humidity": 59.7,
+    "Condition Score": 48.6,
+    "Criticality Score": 5.214285714285714,
+    "Cost": 288359.211175,
+    "Priority": 7.936285714285714
+  },
+  {
+    "Asset Type": "Road",
+    "Usage Hours": 5527.111111111111,
+    "Maintenance Count": 9.194444444444445,
+    "Environmental Temperature": 14.458333333333334,
+    "Humidity": 61.138888888888886,
+    "Condition Score": 51.791666666666664,
+    "Criticality Score": 5.236111111111111,
+    "Cost": 79575.68985,
+    "Priority": 7.882222222222222
+  },
+  {
+    "Asset Type": "Streetlight",
+    "Usage Hours": 5665.205882352941,
+    "Maintenance Count": 9.5,
+    "Environmental Temperature": 13.102941176470589,
+    "Humidity": 60.5735294117647,
+    "Condition Score": 48.0735294117647,
+    "Criticality Score": 5.029411764705882,
+    "Cost": 42764.39565,
+    "Priority": 7.526323529411765
+  }
+]

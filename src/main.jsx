@@ -18,6 +18,8 @@ import Contact from "./components/Contact";
 import User from "./components/User/User";
 import AssetForm from "./components/AssetForm/AssetForm";
 import PreditionCase from "./components/PredictionMaintenace/Prediction";
+import { ResourseAllowcation } from "./components/Resource Allowcation/ResourceAllowcation";
+import Chart from "./components/Chart/Chart";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
       <Route path="user/:userid" element={<User />} />
       <Route path="/asset" element={<AssetForm />} />
       <Route path="/asset-prediction" element={<PreditionCase />} />
+      <Route path="/resource-allowcation" element={<ResourseAllowcation />} />
+      <Route path="/chart" element={<Chart />} />
 
       {/* API fetch karne ke liye yha se bhi kar sakta hai , yha par sirf route ko use kiya he  */}
       {/* <Route path='github' element={<Github /> }/> */}
