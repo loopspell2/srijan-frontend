@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { BudgetAllowcation } from "./BudgetAllocation";
 
@@ -61,17 +61,21 @@ const people = [
   },
 ];
 
+
+
+
 export function ResourseAllowcation() {
+  const [showFilter, setShowFilter] = useState(false);
   return (
     <>
       <BudgetAllowcation />
       <section className="mx-auto w-full max-w-7xl px-4 py-4">
-        <div className="flex flex-col space-y-4  md:flex-row md:items-center md:justify-between md:space-y-0">
+        {/* <div className="flex flex-col space-y-4  md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-lg font-semibold">Employees</h2>
             <p className="mt-1 text-sm text-gray-700">
-              This is a list of all employees. You can add new employees, edit
-              or delete existing ones.
+               This is a list of all employees. You can add new employees, edit
+              or delete existing ones. 
             </p>
           </div>
           <div>
@@ -82,7 +86,64 @@ export function ResourseAllowcation() {
               Add new employee
             </button>
           </div>
+        </div> */}
+    
+    <div className="bg-gray-800 p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Left side: Links */}
+        <div className="flex space-x-4">
+          <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Assets Details</a>
+          <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Create Asset</a>
         </div>
+
+        {/* Center: Search Box */}
+        <div className="relative">
+          <input
+            type="text"
+            className="w-full px-3 py-2 rounded-md text-sm border-gray-300"
+            placeholder="Search..."
+          />
+        </div>
+
+        {/* Right side: Filter options */}
+        <div
+          className="relative"
+          onMouseEnter={() => setShowFilter(true)}
+          onMouseLeave={() => setShowFilter(false)}
+        >
+          <button className="text-white px-3 py-2 rounded-md text-sm font-medium">
+            Filter
+          </button>
+          {showFilter && (
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+              <div className="py-1">
+                <label className="block px-4 py-2 text-sm text-gray-700">
+                  <input type="checkbox" className="mr-2 leading-tight" />
+                  Option 1
+                </label>
+                <label className="block px-4 py-2 text-sm text-gray-700">
+                  <input type="checkbox" className="mr-2 leading-tight" />
+                  Option 2
+                </label>
+                <label className="block px-4 py-2 text-sm text-gray-700">
+                  <input type="checkbox" className="mr-2 leading-tight" />
+                  Option 3
+                </label>
+                <label className="block px-4 py-2 text-sm text-gray-700">
+                  <input type="checkbox" className="mr-2 leading-tight" />
+                  Option 3
+                </label>
+                <label className="block px-4 py-2 text-sm text-gray-700">
+                  <input type="checkbox" className="mr-2 leading-tight" />
+                  Option 3
+                </label>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
