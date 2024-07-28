@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { BudgetAllowcation } from "./BudgetAllocation";
+
+import { PlusCircle } from "lucide-react";
+import  BudgetAllowcation  from "./BudgetAllocation";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const people = [
   {
@@ -66,83 +68,81 @@ const people = [
 
 export function ResourseAllowcation() {
   const [showFilter, setShowFilter] = useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    getData();
+  }, []); // Empty dependency array means this will run once when the component mounts
+
+  const getData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/assets/list');
+      setData(Array.isArray(response.data) ? response.data : []);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
+
+  const getSearchData = async (query) => {
+    setLoading(true);
+    try {
+      const response = await axios.get('http://localhost:8000/api/assets/list', {
+        params: {
+          name: query,
+        },
+      });
+      setData(response.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
+  
+  const handleSearch = () => {
+    getSearchData(name);
+  };
+  
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+
   return (
     <>
-      <BudgetAllowcation />
+      {/* <BudgetAllowcation /> */}
       <section className="mx-auto w-full max-w-7xl px-4 py-4">
-        {/* <div className="flex flex-col space-y-4  md:flex-row md:items-center md:justify-between md:space-y-0">
-          <div>
-            <h2 className="text-lg font-semibold">Employees</h2>
-            <p className="mt-1 text-sm text-gray-700">
-               This is a list of all employees. You can add new employees, edit
-              or delete existing ones. 
-            </p>
-          </div>
-          <div>
-            <button
-              type="button"
-              className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Add new employee
-            </button>
-          </div>
-        </div> */}
-    
-    <div className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Left side: Links */}
-        <div className="flex space-x-4">
-          <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Assets Details</a>
-          <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Create Asset</a>
-        </div>
+        <p>
 
-        {/* Center: Search Box */}
-        <div className="relative">
-          <input
-            type="text"
-            className="w-full px-3 py-2 rounded-md text-sm border-gray-300"
-            placeholder="Search..."
-          />
-        </div>
+        </p>
 
-        {/* Right side: Filter options */}
-        <div
-          className="relative"
-          onMouseEnter={() => setShowFilter(true)}
-          onMouseLeave={() => setShowFilter(false)}
-        >
-          <button className="text-white px-3 py-2 rounded-md text-sm font-medium">
-            Filter
-          </button>
-          {showFilter && (
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
-              <div className="py-1">
-                <label className="block px-4 py-2 text-sm text-gray-700">
-                  <input type="checkbox" className="mr-2 leading-tight" />
-                  Option 1
-                </label>
-                <label className="block px-4 py-2 text-sm text-gray-700">
-                  <input type="checkbox" className="mr-2 leading-tight" />
-                  Option 2
-                </label>
-                <label className="block px-4 py-2 text-sm text-gray-700">
-                  <input type="checkbox" className="mr-2 leading-tight" />
-                  Option 3
-                </label>
-                <label className="block px-4 py-2 text-sm text-gray-700">
-                  <input type="checkbox" className="mr-2 leading-tight" />
-                  Option 3
-                </label>
-                <label className="block px-4 py-2 text-sm text-gray-700">
-                  <input type="checkbox" className="mr-2 leading-tight" />
-                  Option 3
-                </label>
-              </div>
+        <div className="bg-gray-800 p-4">
+          <div className="container mx-auto flex justify-between items-center">
+            {/* Left side: Links */}
+            <div className="flex space-x-4">
+              <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Assets Details</a>
+              <a href="/asset" className="text-white px-3 py-2 rounded-md text-sm font-medium flex">Create Asset <PlusCircle className="mx-1 p-1"/></a>
             </div>
-          )}
+
+            {/* Center: Search Box */}
+            <div className="relative flex">
+              <input
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                className="w-full px-3 py-2 rounded-md text-sm border-gray-300"
+                placeholder="Search..."
+              />
+              <button className="bg-white rounded-lg mx-2 p-2 text-gray-600" onClick={handleSearch}>Search</button>
+            </div>
+
+          </div>
         </div>
-      </div>
-    </div>
 
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -155,13 +155,13 @@ export function ResourseAllowcation() {
                         scope="col"
                         className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
                       >
-                        <span>Employee</span>
+                        Type
                       </th>
                       <th
                         scope="col"
                         className="px-12 py-3.5 text-left text-sm font-normal text-gray-700"
                       >
-                        Title
+                        Name
                       </th>
 
                       <th
@@ -170,54 +170,71 @@ export function ResourseAllowcation() {
                       >
                         Status
                       </th>
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                      >
+                        Condition
+                      </th>
 
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
                       >
-                        Role
+                        location
                       </th>
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
                       >
-                        Edit{" "}
+                        value in rs
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                      >
+                        last maintance date
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    {people.map((person) => (
-                      <tr key={person.name}>
+                    {data.map((asset) => (
+                      <tr key={asset._id}>
                         <td className="whitespace-nowrap px-4 py-4">
                           <div className="flex items-center">
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-900">
-                                {person.name}
+                                {asset.type}
                               </div>
                             </div>
                           </div>
                         </td>
                         <td className="whitespace-nowrap px-12 py-4">
-                          <div className="text-sm text-gray-900 ">
-                            {person.title}
-                          </div>
+                          
                           <div className="text-sm text-gray-700">
-                            {person.department}
+                            {asset.name}
                           </div>
                         </td>
                         <td className="whitespace-nowrap px-4 py-4">
                           <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                            Active
+                            {asset.status}
                           </span>
                         </td>
                         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                          {person.role}
+                          {asset.condition}
                         </td>
-                       
                         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                          {person.edit}
+                          {asset.location}
                         </td>
-                        
+
+                        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+                          {asset.value}
+                        </td>
+
+                        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+                          {asset.lastMaintenanceDate}
+                        </td>
+
                       </tr>
                     ))}
                   </tbody>
@@ -226,43 +243,7 @@ export function ResourseAllowcation() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center pt-6">
-          <a
-            href="#"
-            className="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900"
-          >
-            <span className="hidden lg:block">&larr; Previous</span>
-            <span className="block lg:hidden">&larr;</span>
-          </a>
-          <a
-            href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-          >
-            1
-          </a>
-          <a
-            href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-          >
-            2
-          </a>
-          <a
-            href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-          >
-            3
-          </a>
-          <a
-            href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-          >
-            4
-          </a>
-          <a href="#" className="mx-2 text-sm font-semibold text-gray-900">
-            <span className="hidden lg:block">Next &rarr;</span>
-            <span className="block lg:hidden">&rarr;</span>
-          </a>
-        </div>
+
       </section>
     </>
   );

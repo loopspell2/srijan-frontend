@@ -9,7 +9,9 @@ export default function Feature() {
   return (
     <>
       <div className="flex justify-around mt-11">
-        <div className="w-[400px] bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4 ">
+
+        <Link to={"https://secure.fleetio.com/76f545caed/dashboard"}>
+        <div className="w-[400px] bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4 ">      
           <div className="p-8 flex flex-col items-center ">
             <div className="uppercase text-center tracking-wide text-sm text-indigo-500 font-semibold mb-4">
               <h1>Asset Tracking</h1>
@@ -19,7 +21,6 @@ export default function Feature() {
                 className="w-12 object-cover mt-4 rounded-md "
               />
             </div>
-
             <ul className="space-y-3 ">
               <li className="flex items-center">
                 <span className="text-gray-700">
@@ -29,6 +30,8 @@ export default function Feature() {
             </ul>
           </div>
         </div>
+        </Link>
+
         <div className="w-[400px]  bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4">
           <Link to={"/asset-prediction"}>
             <div className="p-8 flex flex-col items-center">
@@ -93,6 +96,7 @@ export default function Feature() {
             </ul>
           </div>
           </Link>
+
         </div>
       </div>
     </>
